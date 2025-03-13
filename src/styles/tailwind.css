@@ -1,13 +1,17 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
-
-
-@theme {
-  /* Her tilføjes theme variable // tokens */
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+  themes: light --default, lemonade;
 }
 
+@theme {
+  --font-sans: "kodchasan";
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @layer base {
   *,
   ::after,
@@ -18,11 +22,11 @@
   }
 
   /*Tobii mods*/
-    .tobii-zoom{
-      width: 100%;
+  .tobii-zoom {
+    width: 100%;
   }
   .tobii__slide figure > img {
-      padding-bottom: 50px;
+    padding-bottom: 50px;
   }
 
   /* iframe {
@@ -31,13 +35,24 @@
   } */
 
   .tobii {
-      background-color: black;
+    background-color: black;
   }
 }
 
-@layer components{
-
+@theme {
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
 }
-@layer utilities{
-  
+
+@layer components {
+}
+@layer utilities {
 }
